@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet, Image } from 'react-native';
+import { FontAwesome } from '@expo/vector-icons';
 
 export default function ResultList(props) {
     return (
@@ -16,6 +17,10 @@ export default function ResultList(props) {
                             source={{ uri: item.image_url }} 
                             style={styles.image} 
                         />
+                        <View style={styles.ratingContainer}>
+                            <FontAwesome name="star" size={16} color="gold" />
+                            <Text style={styles.rating}>{item.rating}</Text>
+                        </View>
                     </View>
                 )}
             
