@@ -75,7 +75,6 @@ export default function HomeScreen({navigation}) {
             Search Screen
         </Text>
         </TouchableOpacity>
-        console.log("HomeScreen");
 
 
     </View>
