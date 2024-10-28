@@ -33,3 +33,6 @@ yarn-error.*
 
 # typescript
 *.tsbuildinfo
+
+# LabExamSCreen.js file is not included in the git repository
+LabExamScreen.js

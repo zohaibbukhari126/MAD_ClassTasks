@@ -12,6 +12,9 @@ import Assignment1Screen from './src/screens/Assignment1Screen';
 import ColorChanger from './src/screens/ColorChanger';
 import SquareColor from './src/screens/SquareColor';
 import SearchScreen from './src/screens/SearchScreen';
+import WeatherSearchScreen from './src/screens/WeatherSearchScreen';
+import LabExamScreen from './src/screens/LabExamScreen';
+import RestaurantDetailScreen from './src/components/RestaurantDetailScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,6 +34,9 @@ export default function App() {
                 <Stack.Screen name="ColorChanger" component={ColorChanger} />
                 <Stack.Screen name="SquareColor" component={SquareColor} />
                 <Stack.Screen name="SearchScreen" component={SearchScreen} />
+                <Stack.Screen name="WeatherSearchScreen" component={WeatherSearchScreen} />
+                <Stack.Screen name="LabExamScreen" component={LabExamScreen} /> 
+                <Stack.Screen name="RestaurantDetail" component={RestaurantDetailScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );

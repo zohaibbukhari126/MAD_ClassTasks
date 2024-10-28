@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, TextInput, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import yelp from '../api/yelp';
-import { MaterialIcons } from '@expo/vector-icons';
 import ResultList from '../components/Resultlist';
+import SearchBar from '../components/SearchBar';
 
 export default function SearchScreen() {
     const [term, setTerm] = useState('');
@@ -15,8 +15,8 @@ export default function SearchScreen() {
                 params: {
                     limit: 45,
                     term: term,
-                    location: 'san francisco'
-                }
+                    location: 'san francisco',
+                },
             });
             setResults(response.data.businesses);
         } catch (err) {
@@ -25,65 +25,58 @@ export default function SearchScreen() {
     };
 
     const filterResultsByPrice = (price) => {
-        return results.filter(result => {
-            return result.price === price;
-        });
+        return results.filter(result => result.price === price);
     };
 
     return (
         <ScrollView style={styles.scrollView} contentContainerStyle={styles.contentContainer}>
-            <View style={styles.background}>
-                <MaterialIcons name="search" style={styles.iconStyle} />
-                <TextInput
-                    placeholder="Enter name of the Dish or the Restaurant"
-                    value={term}
-                    onChangeText={setTerm}
-                    onSubmitEditing={searchApi}
-                    style={styles.inputStyle}
-                />
-            </View>
-            {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Text>You have found {results.length} results</Text>
+            <SearchBar
+                term={term}
+                onTermChange={setTerm}
+                onTermSubmit={searchApi}
+                PlaceHolderS="Enter name of the Dish or the Restaurant"
+            />
+            {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
+            <Text style={styles.resultsCount}>You have found {results.length} results</Text>
             <ResultList 
                 results={filterResultsByPrice('$')}
                 title="Cost Effective"
-            />    
+            />
             <ResultList 
                 results={filterResultsByPrice('$$')}
                 title="Bit Expensive"
-            />    
+            />
             <ResultList 
                 results={filterResultsByPrice('$$$')}
                 title="Big Spender"
-            />    
+            />
             <ResultList 
                 results={filterResultsByPrice('$$$$')}
-                title="Burger Bcha"
-            />    
+                title="Luxury Dining"
+            />
         </ScrollView>
     );
 }
 
 const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        padding: 16,
+    scrollView: {
+        backgroundColor: '#f8f9fa',
+        paddingHorizontal: 16,
     },
-    background: {
-        flexDirection: 'row',
-        borderRadius: 15,
-        backgroundColor: '#BBBBBB',
+    contentContainer: {
+        paddingBottom: 16,
+    },
+    error: {
+        color: '#d9534f',
         margin: 15,
-        padding: 10,
-        alignItems: 'center',
+        fontSize: 16,
+        fontWeight: '500',
     },
-    iconStyle: {
-        fontSize: 35,
-        marginHorizontal: 10,
-    },
-    inputStyle: {
-        flex: 1,
+    resultsCount: {
         fontSize: 18,
-        color: 'black',
-    }
+        margin: 15,
+        marginBottom: 5,
+        fontWeight: '600',
+        color: '#343a40',
+    },
 });
