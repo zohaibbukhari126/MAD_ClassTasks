@@ -15,6 +15,13 @@ import SearchScreen from './src/screens/SearchScreen';
 import WeatherSearchScreen from './src/screens/WeatherSearchScreen';
 import LabExamScreen from './src/screens/LabExamScreen';
 import RestaurantDetailScreen from './src/components/RestaurantDetailScreen';
+import SignUp from './src/screens/SignUp';
+import LogInScreen from './src/screens/LogInScreen';
+import CRUD_SCREEN from './src/screens/CRUD_SCREEN';
+
+import FetchSaveScreen from './src/screens/FetchSaveScreen';
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -37,6 +44,12 @@ export default function App() {
                 <Stack.Screen name="WeatherSearchScreen" component={WeatherSearchScreen} />
                 <Stack.Screen name="LabExamScreen" component={LabExamScreen} /> 
                 <Stack.Screen name="RestaurantDetail" component={RestaurantDetailScreen} />
+                <Stack.Screen name="SignUp" component={SignUp} />
+                <Stack.Screen name="LogInScreen" component={LogInScreen} />
+                <Stack.Screen name="CRUD_SCREEN" component={CRUD_SCREEN} />
+          
+                <Stack.Screen name="FetchSaveScreen" component={FetchSaveScreen} />
+                
             </Stack.Navigator>
         </NavigationContainer>
     );

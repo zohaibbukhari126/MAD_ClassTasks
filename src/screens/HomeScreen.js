@@ -51,6 +51,25 @@ export default function HomeScreen({ navigation }) {
             <TouchableOpacity style={styles.buttonStyle} onPress={() => { navigation.navigate('LabExamScreen') }}>
                 <Text style={styles.textStyle}>Lab Exam Screen</Text>
             </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonStyle} onPress={() => { navigation.navigate('SignUp') }}>
+                <Text style={styles.textStyle}>Sign Up</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.buttonStyle} onPress={() => { navigation.navigate('LogInScreen') }}>
+                <Text style={styles.textStyle}>Login</Text>
+            </TouchableOpacity>
+
+            
+
+            <TouchableOpacity style={styles.buttonStyle} onPress={() => { navigation.navigate('FetchSaveScreen') }}>
+                <Text style={styles.textStyle}>FetchSaveScreen</Text>
+            </TouchableOpacity>
+
+            
+
+            
+
         </ScrollView>
     );
 }
